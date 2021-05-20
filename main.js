@@ -9,7 +9,7 @@ if(!("FaceDetector" in window)) {
 }
 
 var penguin = penguinTemplate.content.querySelector('#penguin');
-var detector = new FaceDetector();
+var detector = new FaceDetector({ fastMode: true });
 var canvas = document.createElement('canvas');
 var ctx = canvas.getContext('2d');
 var video = document.createElement('video');
