@@ -27,14 +27,18 @@ html, body {
   align-items: center;
 }
 .modal__body {
-  border: 4px rgba(212, 20, 18, 0.67) solid;
-  color: rgba(212, 20, 18, 0.67);
+  border: 4px #5d67ce solid;
+  color: #5d67ce;
   padding: 50px 50px;
   width: 720px;
   line-height: 1.5;
   box-sizing: border-box;
   max-width: calc(100% - 80px);
   text-align: center;
+}
+.modal__body.error {
+  border: 4px rgba(212, 20, 18, 0.67) solid;
+  color: rgba(212, 20, 18, 0.67);
 }
 @media all and (max-width: 520px) {
   .modal__body {
