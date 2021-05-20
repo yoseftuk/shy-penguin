@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <title>My shy penguin</title>
+    <link rel="stylesheet" href="index.css"/>
+    <link rel="icon" href="penguin.svg"/>
+    <meta name="og:title" content="My shy penguin"/>
+    <meta name="og:description" content="A penguin dancing when you not look, but shy when he see t=your face"/>
+    <meta name="og:image" content="http://yoseftuk.github.io/shy-penguin/penguin.svg"/>
+    <meta name="viewport" content="width=device-width.height=device-height,initial-scale=1.0"/>
+</head>
+<body>
+<template id="penguin-animation">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" x="0px" y="0px"
+     viewBox="-100 -100 700 600" xml:space="preserve" id="penguin">
+    <defs>
+        <radialGradient id="cheek-gradient">
+            <stop offset="10%" stop-color="#ef4451" stop-opacity="1"/>
+            <stop offset="40%" stop-color="#ef4451" stop-opacity=".8"/>
+            <stop offset="95%" stop-color="#ef4451" stop-opacity="0"/>
+        </radialGradient>
+    </defs>
+    <ellipse id="floor" opacity="0.15" cx="249" cy="483" rx="195" ry="12.8">
+    </ellipse>
+    <g id="full-body">
+    <path stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10"
+          d=" M124.4,296.3c0,0-51.9,25.2-47.8,51.9c4,26.9,56.4,4.5,56.4,4.5c0,0,30,-30,-8,-55z" fill="#2d2c2c"
+          id="right-hand"/>
+        <path stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10"
+              d=" M382.6,288.5c0,0,46.1-27.2,39.8-53.3c-6.3-26.4-55.1,0-55.1,0c0,0,-40,40,14,53" fill="#2d2c2c"
+              id="left-hand">
+        </path>
+        <path stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10"
+              d=" M177.5,460.2c0,0-24.4,4-26.7,12.1c-2.3,7.8,20.6,6,20.6,6s1.8,8.6,9.3,12.1c7.6,3.5,17.9-5.3,17.9-5.3s10.3,9.3,19.1,2.8 c9.1-6.8-6-18.4-6-18.4L177.5,460.2z"
+              fill="#ed5e25" id="right-leg">
+        </path>
+        <path stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10"
+              d=" M328.8,460.2c0,0,24.4,4,26.7,12.1c2.3,7.8-20.6,6-20.6,6s-1.8,8.6-9.3,12.1c-7.6,3.5-17.9-5.3-17.9-5.3s-10.3,9.3-19.1,2.8 c-9.1-6.8,6-18.4,6-18.4L328.8,460.2z"
+              fill="#ed5e25" id="left-leg">
+        </path>
+        <g id="body">
+        <path stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10"
+              d=" M348.7,177.5c-23.4-66-75.3-68-94.7-68l0,0l0,0l0,0c-16.9,0-71.2,2-94.7,68c-24.2,68-52.9,169.2-33.2,229.6 c19.1,58.9,76,67.5,125.9,68l0,0c0.8,0,1.3,0,2,0c0.8,0,1.3,0,2,0l0,0c49.8-0.5,106.7-8.8,125.9-68 C401.6,346.7,372.9,245.2,348.7,177.5z"
+              fill="#2d2c2c" id="body-black"></path>
+            <path stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                  stroke-miterlimit="10"
+                  d=" M367.3,348.4c0-47.8-30.5-80.1-42-109.8c-11.6-29.7-10.8-64.5-32.2-73.5c-21.4-9.1-39,8.3-39,8.3s-17.6-17.4-39-8.3 c-21.4,9.1-20.6,43.8-32.2,73.5c-11.6,29.7-42,62.2-42,109.8c0,59.7,48.3,103.2,113.3,103.2l0,0l0,0l0,0l0,0 C319,451.7,367.3,408.1,367.3,348.4z"
+                  fill="#f5f6f6" id="body-white"></path>
+            <path id="body-white-shadow" opacity="0.1"
+                  d="M367.3,348.4c0-47.8-30.5-80.1-42-109.8c-11.6-29.7-10.8-64.5-32.2-73.5 c-4.5-2-8.8-2.5-12.8-2.5l0,0c29.2,12.6,17.6,64.2,22.2,85.3c4.5,20.9,35.8,57.7,28.7,113.8c-7,55.4-83.3,89.1-85.1,89.9 c2.5,0.3,5.3,0.3,8.1,0.3l0,0C319,451.7,367.3,408.1,367.3,348.4z"></path>
+    </g>
+        <g id="hat">
+    <path stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10"
+          d=" M311.4,88.9C293.1,67,268.6,32.2,254,31.5l0,0c-0.3,0-0.3,0-0.5,0c-0.3,0-0.3,0-0.5,0l0,0c-14.6,0.8-39,35.5-57.4,57.4 c-18.6,22.2-14.4,39.8-14.4,39.8l72.3-9.6l72.3,9.6C325.8,128.4,330.1,111,311.4,88.9z"
+          fill="#ef4451" id="hat-red"></path>
+            <path id="hat-shadow" opacity="0.1"
+                  d="M272.2,42.8l-3.5,2.3c0,0,13.3,22.7,23.4,38.8s9.3,25.9,9.3,25.9l19.9,18.1l4.3,0.5 c0,0,4.3-17.4-14.4-39.8C299.4,74.5,285,54.9,272.2,42.8z"
+            ></path>
+            <g id="hat-top">
+            <circle stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                    stroke-miterlimit="10"
+                    cx="254" cy="33.7" r="31.5" fill="#f5f6f6" id="hat-top-base"></circle>
+            <path id="hat-top-shadow" opacity="0.1"
+                  d="M285.5,33.7c0-17.4-14.1-31.5-31.5-31.5c-7.3,0-13.8,2.5-19.1,6.5 c53.4,1.3,40.5,48.1,40.5,48.1C281.7,50.9,285.5,42.8,285.5,33.7z"
+                  style="display: inline;"></path>
+            </g>
+            <g id="hat-bottom">
+            <path stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                  stroke-miterlimit="10"
+                  d=" M166.2,142.5c0,0-12.6,2-6,12.6c6.8,10.6,20.1,2,20.6-2.3c0,0,10.1,7.8,21.7-0.3c0,0,27.7,2.3,31.2-8.8c0,0,20.1,14.1,38.8,0.5 c0,0,14.1,12.3,34.2,7c0,0,14.1,11.3,24.7,0c0,0,19.4,1.8,13.1-13.8c0,0,4.8-15.6-6-19.6c-10.8-4-20.9,6-20.9,6s-7.6-14.4-19.1-14.4 c-11.6,0-18.9,8.6-18.9,8.6s-11.3-15.6-24.4-13.6c-13.1,2-22.2,12.3-22.2,12.3s-8.3-11.8-21.9-9.6c-13.6,2.3-13.6,19.9-13.6,19.9 s-13.3-10.6-24.2-5.3C162.4,126.9,166.2,142.5,166.2,142.5z"
+                  fill="#f5f6f6" id="hat-bottom-base"></path>
+            <path id="hat-bottom-shadow" opacity="0.1"
+                  d="M331.6,151.3c0,0,19.4,1.8,13.1-13.8c0,0,4.8-15.6-6-19.6c-10.8-4-20.9,6-20.9,6 s-6.3-11.8-16.1-13.8l0,0c15.1,29.2-12.6,42-12.6,42c5,1,11.1,1.3,17.9-0.5C306.9,151.3,321,162.6,331.6,151.3z"></path>
+            </g>
+    </g>
+        <g id="face">
+        <ellipse stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10"
+                 cx="227.9" cy="201.2" rx="5.3" ry="5.3" fill="#5a4a3d" id="right-eye">
+                        <animate attributeName="ry" values="5.3;5.3;1;1;5.3;5.3;1;1;5.3;5.3"
+                                 keyTimes="0;0.3;0.32;0.34;0.36;0.8;0.82;0.84;0.86;1"
+                                 dur="7s" repeatCount="indefinite"/>
+        </ellipse>
+            <ellipse stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                     stroke-miterlimit="10"
+                     cx="280.2" cy="201.2" rx="5.3" ry="5.3" fill="#5a4a3d" id="left-eye">
+                <animate attributeName="ry" values="5.3;5.3;1;1;5.3;5.3;1;1;5.3;5.3"
+                         keyTimes="0;0.3;0.32;0.34;0.36;0.8;0.82;0.84;0.86;1"
+                         dur="7s" repeatCount="indefinite"/>
+            </ellipse>
+            <g id="beak">
+            <path stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                  stroke-miterlimit="10"
+                  d=" M256,228c0,0,-17,0,-24,8.8c0,0,11,25,24,25c13.3,0,24.2,-25,24.2,-25C273.7,228.9,256.3,228.1,256.3,228.1z"
+                  fill="#fab25b" id="beak-base">
+                <animate attributeName="d"
+                         values="M256,228c0,0,-17,0,-24,8.8c0,0,11,25,24,25c13.3,0,24.2,-25,24.2,-25C273.7,228.9,256.3,228.1,256.3,228.1z;
+M256,228c0,0,-17,0,-24,8.8c0,0,11,25,24,25c13.3,0,24.2,-25,24.2,-25C273.7,228.9,256.3,228.1,256.3,228.1z;
+ M256,228c0,0,-17,0,-24,8.8c0,0,11,10,24,10c13.3,0,24.2,-10,24.2,-10C273.7,228.9,256.3,228.1,256.3,228.1z;
+ M256,228c0,0,-17,0,-24,8.8c0,0,11,10,24,10c13.3,0,24.2,-10,24.2,-10C273.7,228.9,256.3,228.1,256.3,228.1z;
+M256,228c0,0,-17,0,-24,8.8c0,0,11,25,24,25c13.3,0,24.2,-25,24.2,-25C273.7,228.9,256.3,228.1,256.3,228.1z;
+M256,228c0,0,-17,0,-24,8.8c0,0,11,25,24,25c13.3,0,24.2,-25,24.2,-25C273.7,228.9,256.3,228.1,256.3,228.1z;
+ M256,228c0,0,-17,0,-24,8.8c0,0,11,10,24,10c13.3,0,24.2,-10,24.2,-10C273.7,228.9,256.3,228.1,256.3,228.1z;
+ M256,228c0,0,-17,0,-24,8.8c0,0,11,10,24,10c13.3,0,24.2,-10,24.2,-10C273.7,228.9,256.3,228.1,256.3,228.1z;
+ M256,228c0,0,-17,0,-24,8.8c0,0,11,25,24,25c13.3,0,24.2,-25,24.2,-25C273.7,228.9,256.3,228.1,256.3,228.1z;
+M256,228c0,0,-17,0,-24,8.8c0,0,11,25,24,25c13.3,0,24.2,-25,24.2,-25C273.7,228.9,256.3,228.1,256.3,228.1z;"
+                         keyTimes="0;0.3;0.32;0.34;0.36;0.8;0.82;0.84;0.86;1"
+                         dur="7s"
+                         repeatCount="indefinite"
+                />
+            </path>
+                <path id="beak-shadow" opacity="0.1"
+                      d="M244.2,255.8c3.5,3.8,7.6,6.5,12.1,6.5c13.3,0,24.2-25,24.2-25.4c-1.8-2-4-3.5-6.5-4.8 C267.1,252.5,244.2,255.8,244.2,255.8z">
+                        <animate attributeName="d"
+                                 values="
+M244.2,255.8c3.5,3.8,7.6,6.5,12.1,6.5c13.3,0,24.2-25,24.2-25.4c-1.8-2-4-3.5-6.5-4.8 C267.1,252.5,244.2,255.8,244.2,255.8z;
+M244.2,255.8c3.5,3.8,7.6,6.5,12.1,6.5c13.3,0,24.2-25,24.2-25.4c-1.8-2-4-3.5-6.5-4.8 C267.1,252.5,244.2,255.8,244.2,255.8z;
+M244,240c0,0,7.6,10,12,10c0,0,24,0,24.2-15c-1.8-2-4-3.5-6.5-4.8 C240,250,244,240,244,240z;
+M244,240c0,0,7.6,10,12,10c0,0,24,0,24.2-15c-1.8-2-4-3.5-6.5-4.8 C240,250,244,240,244,240z;
+M244.2,255.8c3.5,3.8,7.6,6.5,12.1,6.5c13.3,0,24.2-25,24.2-25.4c-1.8-2-4-3.5-6.5-4.8 C267.1,252.5,244.2,255.8,244.2,255.8z;
+M244.2,255.8c3.5,3.8,7.6,6.5,12.1,6.5c13.3,0,24.2-25,24.2-25.4c-1.8-2-4-3.5-6.5-4.8 C267.1,252.5,244.2,255.8,244.2,255.8z;
+M244,240c0,0,7.6,10,12,10c0,0,24,0,24.2-15c-1.8-2-4-3.5-6.5-4.8 C240,250,244,240,244,240z;
+M244,240c0,0,7.6,10,12,10c0,0,24,0,24.2-15c-1.8-2-4-3.5-6.5-4.8 C240,250,244,240,244,240z;
+M244.2,255.8c3.5,3.8,7.6,6.5,12.1,6.5c13.3,0,24.2-25,24.2-25.4c-1.8-2-4-3.5-6.5-4.8 C267.1,252.5,244.2,255.8,244.2,255.8z;
+M244.2,255.8c3.5,3.8,7.6,6.5,12.1,6.5c13.3,0,24.2-25,24.2-25.4c-1.8-2-4-3.5-6.5-4.8 C267.1,252.5,244.2,255.8,244.2,255.8z
+"
+                                 keyTimes="0;0.3;0.32;0.34;0.36;0.8;0.82;0.84;0.86;1"
+                                 dur="7s"
+                                 repeatCount="indefinite"
+                        />
+            </path>
+
+            </g>
+            <circle id="right-cheek" class="cheek" cx="210" cy="230" r="0" fill="url(#cheek-gradient)"></circle>
+            <circle id="left-cheek" class="cheek" cx="300" cy="230" r="0" fill="url(#cheek-gradient)"></circle>
+    </g>
+        <g id="scarp">
+            <g id="scarp-bottom">
+                <path stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                      stroke-miterlimit="10"
+                      d=" M380.2,485.9l4-2.3c0,0-15.1-9.8-20.6-38c0.5-0.3,0.5-0.5,0.5-0.5c22.4-52.6-14.4-136.7-14.4-136.7l-64.2,11.3 c15.1,37.8,0.3,124.6,5.8,136l0,0c0,0,2.3,32.7,21.4,43.3l4-2.3c0,0-15.9-10.3-20.9-40c1.3-0.3,2.5-0.8,4-1.3 c1,8.3,5.5,31.5,20.9,40.3l4-2.3c0,0-15.6-10.3-20.9-39.8c1.3-0.5,2.8-1.3,4.3-1.8c1.3,9.1,5.8,31,20.9,39.5l4-2.3 c0,0-15.4-10.1-20.6-38.8c1.3-0.5,2.5-1,3.8-1.3c1,7.8,5,32,21.1,40.8l4-2.3c0,0-15.6-10.3-20.9-39.8c1.5-0.5,3-0.8,4.8-1 c0.8,7.6,5,32.2,21.1,41.3l4-2.3c0,0-15.6-10.3-20.9-39.3c1.3,0,2.5,0,4,0c0.8,6.8,4.5,32.5,21.1,41.8l4-2.3c0,0-15.4-10.1-20.6-39 c0.5,0,0.8,0,1.3,0.3c1,0.3,1.8,0.3,2.5,0.5c1,8.1,5.3,31.7,21.1,40.5l4-2.3c0,0-14.9-9.8-20.6-37.8c1.8,0.3,3.3,0.3,4.5,0.3 c1.3,8.8,5.8,31.2,20.9,39.8l4-2.3c0,0-14.9-9.8-20.4-37.3c1.8,0,3.3-0.3,4.3-0.5C360.8,456.7,365.6,477.6,380.2,485.9z"
+                      fill="#ef4451"></path>
+                <path stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                      stroke-miterlimit="10"
+                      d=" M362,343.7c-1.5-5.8-3.3-10.8-4.8-15.6c-19.6,11.8-55.4,15.6-66.2,16.6c0.5,4.5,0.8,9.6,1,14.4C319.8,360,350.2,348.7,362,343.7z M292.6,372.9c0,6.3,0,12.8-0.3,19.1c27.7,3.8,59.9-3.5,78-8.8c-1-8.1-2.5-16.1-4-23.7C341.4,371.1,307.2,372.6,292.6,372.9z M371.4,395.5c-21.7,9.3-60.2,8.6-79.6,7.6c-0.3,7.3-0.8,14.4-1,20.6c24.7,4,60.4,0.5,79.6-2C371.6,413.1,371.9,404.3,371.4,395.5z"
+                      fill="#d81f36"></path>
+            </g>
+            <g id="scarp-top">
+                <path stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                      stroke-miterlimit="10"
+                      d=" M394.5,270.4c-20.1-9.8-12.1-30.7-28.7-19.4c0,0-54.1,14.4-110.8,15.1c-56.6-0.8-110.8-15.1-110.8-15.1 c-16.4-11.3-8.3,9.6-28.7,19.4c-33.5,16.4-4,33.2-4,33.2c52.9,33,101.7,42.8,143.3,41c41.5,1.5,90.4-8.3,143.3-41 C398.3,303.6,427.8,286.8,394.5,270.4z"
+                      fill="#ef4451"></path>
+                <path stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                      stroke-miterlimit="10"
+                      d=" M132.2,294.6c8.1-7.8,18.1-13.1,21.4-25.2c1.8-6,5-11.1,7.8-14.6c-7.6-1.5-13.1-3-15.4-3.5c-4.3,2.5-7.8,24.2-22.9,29.7 c-15.1,5.8-11.3,22.4-11.3,22.4c4,2.5,7.8,4.8,11.8,7C123.6,310.7,124.4,302.4,132.2,294.6z M171,256.8L171,256.8c-2.8,14.9-7.3,27.7-19.4,37.8c-12.1,10.1-15.4,22.7-15.4,22.7c5.5,2.8,11.1,5.3,16.6,7.8 c3.3-14.1,12.6-19.4,21.7-30.7c6.8-8.3,9.8-26.2,11.1-34.7C180,258.6,175.2,257.8,171,256.8z M178.5,310.7c-5.8,4.3-8.8,13.6-10.3,20.4c6.5,2.3,13.1,4.3,19.4,6c0,0,4.8-19.6,17.1-34.5c12.3-14.9,9.1-39.3,9.1-39.3l0,0 c-5.5-0.8-11.1-1.3-16.1-2C200.7,282,188.3,303.6,178.5,310.7z M230.4,264.9c2.3,10.8-5.8,41-13.3,50.1c-5,6-10.1,18.4-12.6,25.9c7.8,1.5,15.4,2.5,22.7,3.3l0,0c0,0,10.1-17.6,18.4-33.5 s6-44.6,6-44.6C244.2,265.9,237.2,265.6,230.4,264.9L230.4,264.9z M287.3,310.7c7.3-16.4-1.8-46.1-1.8-46.1l0,0c-6,0.5-12.1,1-18.4,1.3c0,0,6,30.5-4.3,49.6c-10.1,18.6-11.3,29-11.1,29.5 c1.3,0,2.3,0,3.5,0c6.5,0.3,13.1,0.3,20.1-0.3C275.2,344.7,280,327.3,287.3,310.7z M331.8,295.8c3.3-17.4-4.8-36.8-4.8-36.8l0,0c-6.5,1-13.8,2.3-21.4,3.3c4.3,13.3,5.3,39.8,0,52.9c-5.3,13.1-2.5,26.2-2.5,26.4 c7.8-1.5,15.9-3.3,23.9-5.5C324.8,323.3,328.6,313.2,331.8,295.8z M352.5,289.3c-1.8,23.7,0,37.8,0,38c8.8-3.5,17.9-7.8,26.9-12.6c0,0-9.8-23.7-8.8-36.3c1-12.8-5-27.2-5-27.2s-8.1,2.3-21.4,4.8 C344.4,255.8,354.2,265.4,352.5,289.3z M394.5,270.4c-14.9-7.3-14.4-20.4-19.6-22.4c2.5,7,9.3,25.7,13.8,32c4.5,6.3,7.3,19.9,8.1,24.9c0.5-0.3,1-0.8,1.8-1 C398.3,303.6,427.8,286.8,394.5,270.4z"
+                      fill="#d81f36"></path>
+            </g>
+        </g>
+    </g>
+    <g id="animations">
+        <animate attributeName="cx" values="100;400;100" dur="3s" repeatCount="indefinite" xlink:href="#floor"/>
+        <animate attributeName="rx" values="195;150;195;150;195" dur="3s" repeatCount="indefinite" xlink:href="#floor"/>
+        <animateTransform attributeName="transform" type="rotate"
+                          values="-10 135 315;50 135 315;-10 135 315"
+                          dur="3s" additive="sum" repeatCount="indefinite"
+                          xlink:href="#right-hand"
+        />
+        <animateTransform attributeName="transform" type="rotate"
+                          values="-10 360 260;50 360 260;-10 360 260"
+                          dur="3s" additive="sum" repeatCount="indefinite"
+                          xlink:href="#left-hand"
+        />
+        <animateTransform attributeName="transform" type="rotate"
+                          values="0 210 380;20 210 380;0 210 380;20 210 380;0 210 380" dur="3s"
+                          additive="sum" repeatCount="indefinite" xlink:href="#right-leg"/>
+        <animateTransform attributeName="transform" type="rotate"
+                          values="0 300 380;-20 300 380;0 300 380;-20 300 380;0 300 380" dur="3s"
+                          additive="sum" repeatCount="indefinite" xlink:href="#left-leg"/>
+        <animateTransform attributeName="transform" type="translate"
+                          values="0 0;0 -5;0 0;0 -5;0 0"
+                          dur="3s"
+                          additive="sum" repeatCount="indefinite" xlink:href="#hat-top"/>
+        <animateTransform attributeName="transform" type="translate"
+                          values="0 0;0 -5;0 0;0 -5;0 0"
+                          dur="3s" xlink:href="#hat-bottom"
+                          additive="sum" repeatCount="indefinite"/>
+        <animateTransform attributeName="transform" type="translate"
+                          values="0 0;0 -20;0 0;0 -20;0 0"
+                          dur="3s" xlink:href="#hat"
+                          additive="sum" repeatCount="indefinite"/>
+        <animateTransform attributeName="transform" type="rotate"
+                          values="-20 320 300;20 320 300;-20 320 300"
+                          dur="3s" additive="sum" repeatCount="indefinite"
+                          xlink:href="#scarp-bottom"
+        />
+        <animateTransform attributeName="transform" type="rotate" values="-5 250 300;5 250 300;-5 250 300"
+                          dur="3s" xlink:href="#scarp-top"
+                          additive="sum" repeatCount="indefinite"/>
+        <animateMotion dur="3s" repeatCount="indefinite" xlink:href="#full-body" fill="freeze"
+                       path="M-100,-10c0,0,100,-100,200,0c0,0,-100,-100,-200,0"/>
+        <animateTransform attributeName="transform" type="rotate" values="-10 200 700;10 300 700;-10 200 700" dur="3s"
+                          additive="sum" repeatCount="indefinite" xlink:href="#full-body" fill="freeze"/>
+    </g>
+</svg>
+</template>
+<template id="error-modal">
+    <div class="modal">
+        <div class="modal__body error">
+            <h1 class="modal__message">This app supported only on chrome</h1>
+        </div>
+    </div>
+</template>
+<template id="request-modal">
+    <div class="modal">
+        <div class="modal__body">
+            <h1 class="modal__message">Please allow to use camera to start this app</h1>
+        </div>
+    </div>
+</template>
+<script src="./main.js"></script>
+</body>
+</html>
